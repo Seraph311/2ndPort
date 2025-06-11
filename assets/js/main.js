@@ -249,3 +249,30 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Force reflow hack
+  setTimeout(function() {
+    // Trigger layout recalculation
+    void document.body.offsetHeight;
+    
+    // Reinitialize animations
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 800,
+        once: true,
+        initClassName: 'aos-force-init' // Add this class
+      });
+      AOS.refresh();
+    }
+    
+    // Reinitialize Swiper if needed
+    if (typeof Swiper !== 'undefined') {
+      new Swiper('.init-swiper', {
+        loop: true,
+        autoplay: { delay: 5000 },
+        // Your other Swiper config
+      });
+    }
+  }, 300); // Slightly longer delay
+});
