@@ -69,6 +69,10 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
+
+/* Ensure contact section is visible before animation */
+
+
 body {
   color: var(--default-color);
   background-color: var(--background-color);

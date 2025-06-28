@@ -4,13 +4,24 @@
 <head>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      AOS.init({
-        duration: 800,
-        once: true
-      });
+  document.addEventListener('DOMContentLoaded', function() {
+    // First init with default settings
+    AOS.init({
+      duration: 800,
+      once: true,
+      initClassName: 'aos-force-init' // Add a custom class
     });
-  </script>
+
+    // Hack to force reflow
+    setTimeout(function() {
+      // Trigger layout recalculation
+      void document.body.offsetHeight;
+      
+      // Refresh AOS
+      AOS.refresh();
+    }, 200);
+  });
+</script>
 
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -1185,6 +1196,21 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
+    // Force a refresh after a small delay to ensure elements are visible
+    setTimeout(function() {
+      AOS.refresh();
+    }, 300);
+  });
+</script>
 
 </body>
 
