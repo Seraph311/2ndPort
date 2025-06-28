@@ -72,6 +72,18 @@
 
 /* Ensure contact section is visible before animation */
 
+/* Ensure contact section is visible before animation */
+#contact {
+  opacity: 1 !important; 
+  transform: none !important;
+}
+
+/* Override any hidden states */
+[data-aos] {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) !important;
+  transition-property: none !important;
+}
 
 body {
   color: var(--default-color);
